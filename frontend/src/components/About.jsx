@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "../hoc";
 
+import { AcrosCanvas } from "./canvas";
+
 const About = () => {
   const containerVariants = {
     hidden: { opacity: 0 },

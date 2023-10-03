@@ -39,7 +39,7 @@ const Dropdown = ({ handleLogout, name, username, avatarUrl }) => {
       {isOpen && (
         <ul className='absolute top-8 right-0 bg-black rounded-md shadow-lg z-10'>
           <li className='px-4 py-2 text-white hover:text-red-500 cursor-pointer'><Link className='px-4 py-2 text-white hover:text-red-500 cursor-pointer' to='/profile/me'>Profile</Link></li>
-          <li className='px-4 py-2 text-white hover:text-red-500 cursor-pointer'><Link className='px-4 py-2 text-white hover:text-red-500 cursor-pointer' to='/cart'>Cart</Link></li>
+          
           <li className='px-4 py-2 text-white hover:text-red-500 cursor-pointer' onClick={handleLogout}><span className='px-4 py-2 text-white hover:text-red-500 cursor-pointer'>Logout</span></li>
         </ul>
       )}
