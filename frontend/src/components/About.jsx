@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { SectionWrapper } from "../hoc";
 
 const About = () => {
   const containerVariants = {
@@ -9,7 +10,7 @@ const About = () => {
 
   return (
     <motion.section
-      className="black-gradient py-12 text-white"
+      className="py-10 text-white"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -18,6 +19,13 @@ const About = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-10">
+          <div className="md:w-1/2">
+            <img
+              src="../../src/assets/logo.png"
+              alt="Team Photo"
+              className="rounded-lg"
+            />
+          </div>
           <div className="md:w-1/2">
             <h2 className="text-3xl font-semibold mb-4">About Us</h2>
             <p>
@@ -33,17 +41,10 @@ const About = () => {
               solutions that drive success.
             </p>
           </div>
-          <div className="md:w-1/2">
-            <img
-              src="../../src/assets/logo.png"
-              alt="Team Photo"
-              className="rounded-lg shadow-lg"
-            />
-          </div>
         </div>
       </div>
     </motion.section>
   );
 };
 
-export default About;
+export default SectionWrapper(About, "About");

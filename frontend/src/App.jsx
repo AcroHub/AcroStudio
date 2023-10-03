@@ -14,12 +14,12 @@ const App = () => {
                 <Routes>
                   <Route path='/' element={<Hero />}/>
 
+                  <Route path='/about' element={<About />}/>
+
                   <Route path='/login_register' element={<LoginRegister />} />
 
                   <Route path='/profile/me' element={<MyProfile />} />
                 </Routes>
-
-                <About />
 
                 <StarsCanvas />
               </div>
