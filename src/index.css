@@ -305,3 +305,19 @@ input[type="file"] {
   display: none !important;
 }
 
+
+/* Custom Font Styles */
+.font-custom-bold {
+  font-family: "Your-Bold-Font", sans-serif; /* Replace "Your-Bold-Font" with your actual bold font */
+  font-weight: bold;
+}
+
+.font-custom-medium {
+  font-family: "Your-Medium-Italic-Font", sans-serif; /* Replace "Your-Medium-Italic-Font" with your actual medium italic font */
+  font-style: italic;
+}
+
+.font-custom-regular {
+  font-family: "Your-Regular-Font", sans-serif; /* Replace "Your-Regular-Font" with your actual regular font */
+  font-weight: normal;
+}

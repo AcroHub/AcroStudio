@@ -1,3 +1,5 @@
+import menu from '../assets/menu.svg';
+
 export const navLinks = [
   {
     id: "",
@@ -8,7 +10,7 @@ export const navLinks = [
     title: "About",
   },
   {
-    id: "",
+    id: "services",
     title: "Services",
   },
   {
@@ -17,5 +19,31 @@ export const navLinks = [
   },
 ];
 
+const services = [
+  {
+    title: "Wesite Designing",
+    icon: menu,
+  },
+  {
+    title: "Web App Development",
+    icon: menu,
+  },
+  {
+    title: "Android App Development",
+    icon: menu,
+  },
+  {
+    title: "Graphic Designing",
+    icon: menu,
+  },
+  {
+    title: "Content Writing",
+    icon: menu,
+  },
+  {
+    title: "IT Consultant",
+    icon: menu,
+  },
+];
 
-export {  };
+export { services };

@@ -1,30 +1,24 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Hero, About, Navbar, StarsCanvas } from "./components";
+import { Hero, About, Services, Navbar, StarsCanvas } from "./components";
+import { BrowserRouter } from "react-router-dom";
 import React, { useRef } from "react";
 
 const App = () => {
   return (
-
-    <BrowserRouter>
+<BrowserRouter>
       <div className="relative z-0 black-gradient">
         <Navbar />
 
-            <div className="black-gradient bg-gradient-to-r bg-cover bg-no-repeat bg-center">
-              <div className="relative z-0 h-screen max-h-full">
-                <Routes>
-                  <Route path='/' element={<Hero />}/>
-
-                  <Route path='/about' element={<About />}/>
-
-                </Routes>
+        <div className="bg-gradient-to-r bg-cover bg-no-repeat bg-center">
+          <div className="relative z-0">
+            <Hero />
+            <StarsCanvas />
+          </div>
+        </div>
 
                 <About />
-
-                <StarsCanvas />
-              </div>
-            </div>
+                <Services />
       </div>
-    </BrowserRouter>
+      </BrowserRouter>
   );
 };
 

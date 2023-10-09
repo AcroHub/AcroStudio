@@ -29,15 +29,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToAbout = () => {
-    // Scroll to the 'about' section when the 'About' link is clicked
-    scroll.scrollTo("about", {
-      duration: 800, // Duration of the scroll animation (in milliseconds)
-      smooth: "easeInOutQuart", // Easing function for smooth scrolling
-      offset: -50, // Offset from the top of the target section
-    });
-  };
-
   return (
     <nav
       className={`${styles.paddingX
@@ -65,13 +56,10 @@ const Navbar = () => {
             <li
             key={nav.id}
             className={`${
-              active === nav.title ? "text-red" : "text-white"
+              active === nav.title ? "text-red-500" : "text-white"
             } hover:text-red-500 text-[18px] font-medium cursor-pointer`}
             onClick={() => {
               setActive(nav.title);
-              if (nav.title === "About") {
-                scrollToAbout();
-              }
             }}
           >
             <a href={`#${nav.id}`}>{nav.title}</a>
