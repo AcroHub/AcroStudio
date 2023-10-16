@@ -1,4 +1,4 @@
-import { Hero, About, Services, Navbar, StarsCanvas } from "./components";
+import { Hero, About, Services, Contact, Navbar, StarsCanvas } from "./components";
 import { BrowserRouter } from "react-router-dom";
 import React, { useRef } from "react";
 
@@ -17,6 +17,7 @@ const App = () => {
 
                 <About />
                 <Services />
+                <Contact />
       </div>
       </BrowserRouter>
   );
