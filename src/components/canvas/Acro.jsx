@@ -22,8 +22,8 @@ const Acros = ({ isMobile }) => {
       <pointLight intensity={0.1} />
       <primitive
         object={Acro.scene}
-        scale={isMobile ? 0.1 : 0.18}
-        position={isMobile ? [0, 0, 0] : [0, 0.7, 0]}
+        scale={isMobile ? 0.1 : 0.15}
+        position={isMobile ? [0, 0, 0] : [0, 0, 0]}
         rotation={[1.85, 0.5, -2.1]}
       />
     </mesh>

@@ -17,7 +17,7 @@ const Hero = () => {
 
 
   return (
-// {/* <section className={`relative w-full h-screen mx-auto`}> */}
+<section className={`relative w-full h-screen mx-auto`}>
     <div
       className={`xl:mt-28 flex xl:flex-row flex-col-reverse overflow-hidden`}
     >
@@ -61,7 +61,7 @@ const Hero = () => {
         <AcrosCanvas />
       </motion.div>
     </div>
-
+</section>
   );
 };
 

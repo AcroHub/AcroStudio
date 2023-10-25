@@ -5,6 +5,8 @@ import About from './About';
 import Services from './Services';
 import Contact from './Contact';
 
+import Footer from './Footer';
+
 import Navbar from "./Navbar";
 import CanvasLoader from "./Loader";
 
@@ -17,6 +19,7 @@ export {
   About,
   Services,
   Contact,
+  Footer,
   
   Navbar,
   CanvasLoader,

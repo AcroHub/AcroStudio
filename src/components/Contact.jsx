@@ -1,48 +1,65 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { slideIn, fadeIn, textVariant } from "../utils/motion";
 import contactSvg from "../assets/undraw_contact_us_re_4qqt.svg";
 
+import emailjs from "@emailjs/browser";
+import swal from "sweetalert";
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const formRef = useRef();
+  const [form, setForm] = useState({
     name: "",
     email: "",
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { target } = e;
+    const { name, value } = target;
+
+    setForm({
+      ...form,
+      [name]: value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    try {
-      // Make an HTTP request to send the form data to your server.
-      // You can use Axios, Fetch, or any other library for this.
-      // Example using Axios:
-      // await axios.post("/api/contact", formData);
+    emailjs
+      .sendForm(
+        "service_9d14utn",
+        "template_ttu5g49",
+        formRef.current,
+        "gD9dRGjVtuto-QEPD"
+      )
+      .then(
+        () => {
+          setLoading(false);
+          swal("Thank you!", "We'll get back to you as soon as possible.", "success");
 
-      // Reset the form fields
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
-
-      // You can also show a success message to the user
-      alert("Message sent successfully!");
-    } catch (error) {
-      // Handle errors if the request fails
-      console.error("Error sending the message:", error);
-    }
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          console.error(error);
+          swal("Oops!", "Something went wrong. Please try again.", "error");
+        }
+      );
   };
 
   return (
-    <div className={`xl:mt-12 p-4 flex flex-wrap items-center`}>
+    <div className={`xl:mt-12 p-4 flex flex-wrap items-center overflow-hidden`}>
       {/* Left Side: SVG */}
       <motion.div variants={slideIn("left", "tween", 0.2, 1)} className='xl:w-1/2 xl:h-auto w-full p-4'>
         <motion.img
@@ -61,9 +78,9 @@ const Contact = () => {
           <h2 className={styles.sectionHeadText}>Contact Us</h2>
         </motion.div>
 
-        <motion.div className={`p-4 rounded-md shadow-lg bg-black-200 border border-red-500`}>
+        <motion.div className={`p-4 rounded-md shadow-lg bg-black border border-red-500`}>
 
-          <form onSubmit={handleSubmit} className='mt-4'>
+          <form ref={formRef} onSubmit={handleSubmit} className='mt-4'>
             <div className='mb-4'>
               <label htmlFor='name' className='block text-secondary'>
                 Name
@@ -72,7 +89,7 @@ const Contact = () => {
                 type='text'
                 id='name'
                 name='name'
-                value={formData.name}
+                value={form.name}
                 onChange={handleChange}
                 className='w-full px-4 py-2 rounded-md bg-gray-200'
                 required
@@ -86,7 +103,7 @@ const Contact = () => {
                 type='email'
                 id='email'
                 name='email'
-                value={formData.email}
+                value={form.email}
                 onChange={handleChange}
                 className='w-full px-4 py-2 rounded-md bg-gray-200'
                 required
@@ -99,7 +116,7 @@ const Contact = () => {
               <textarea
                 id='message'
                 name='message'
-                value={formData.message}
+                value={form.message}
                 onChange={handleChange}
                 rows='4'
                 className='w-full px-4 py-2 rounded-md bg-gray-200'

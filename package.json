@@ -24,7 +24,9 @@
     "react-three-fiber": "^6.0.13",
     "react-tilt": "^0.1.4",
     "react-tilty": "^3.0.0",
+    "react-use": "^17.4.0",
     "react-vertical-timeline-component": "^3.6.0",
+    "sweetalert": "^2.1.2",
     "tailwindcss-hero-patterns": "^0.1.2",
     "three": "^0.149.0",
     "typed.js": "^2.0.14"

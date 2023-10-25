@@ -25,6 +25,28 @@
   --body-bg: oklch(85% .01 90deg);
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -242,7 +264,7 @@ body{
 }
 
 .head-text {
-  @apply xl:text-[8rem] text-[6rem] xl:leading-[8rem] leading-[7rem] font-black text-white;
+  @apply xl:text-[7rem] text-[5rem] xl:leading-[8rem] leading-[7rem] font-black text-white;
 }
 
 .download-btn {
@@ -320,4 +342,61 @@ input[type="file"] {
 .font-custom-regular {
   font-family: "Your-Regular-Font", sans-serif; /* Replace "Your-Regular-Font" with your actual regular font */
   font-weight: normal;
+}
+
+.back-to-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(255, 77, 77, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.back-to-top-button:hover {
+  opacity: 1;
+}
+
+.back-to-top-button i {
+  color: #000000;
+}
+
+/* Additional styles for the up arrow icon (Font Awesome) */
+.back-to-top-button i:before {
+  content: "\f062";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 18px;
+}
+
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  margin-top: -5px;
+  cursor: pointer;
+}
+
+.up:hover polyline,
+.up:focus polyline,
+.back-to-top-button:hover {
+stroke-width: 15;
+}
+
+.up:active polyline, .back-to-top-button:active {
+stroke-width: 15;
+transition: all 100ms ease-in-out;
 }
