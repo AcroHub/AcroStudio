@@ -37,11 +37,15 @@ const services = [
     icon: menu,
   },
   {
-    title: "Content Writing",
+    title: "IT Consultation",
     icon: menu,
   },
   {
-    title: "IT Consultant",
+    title: "Digital Marketing",
+    icon: menu,
+  },
+  {
+    title: "Branding",
     icon: menu,
   },
 ];
