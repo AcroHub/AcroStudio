@@ -73,13 +73,13 @@ const Contact = () => {
       {/* Right Side: Contact Form in Card */}
       <motion.div variants={slideIn("right", "tween", 0.2, 1)} className='xl:w-1/2 xl:h-auto w-full'>
 
-      <motion.div variants={textVariant()}>
+        <motion.div className={`p-4 rounded-md shadow-lg bg-transparent border border-red-500`}>
+
+        <motion.div variants={textVariant()}>
           {/* <p className={styles.sectionSubText}>About Us</p> */}
           <h2 className={styles.sectionHeadText}>Contact Us</h2>
         </motion.div>
-
-        <motion.div className={`p-4 rounded-md shadow-lg bg-black border border-red-500`}>
-
+        
           <form ref={formRef} onSubmit={handleSubmit} className='mt-4'>
             <div className='mb-4'>
               <label htmlFor='name' className='block text-secondary'>

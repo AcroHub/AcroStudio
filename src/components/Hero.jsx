@@ -6,6 +6,8 @@ import { slideIn } from "../utils/motion";
 import { SectionWrapper } from "../hoc";
 import { Link } from "react-router-dom";
 
+import { Link as ScrollLink, Events, animateScroll as scroll } from "react-scroll";
+
 import {
   headContainerAnimation,
   headContentAnimation,
@@ -15,6 +17,63 @@ import {
 
 const Hero = () => {
 
+  const [active, setActive] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleNavLinkClick = (navId) => {
+    setActive(navId);
+
+    setScrolled(true);
+
+    if (navId === "Home") {
+      scroll.scrollToTop({ duration: 500 });
+      setScrolled(false);
+    }
+  };
+
+  const handleScroll = () => {
+    const scrollOffset = window.scrollY;
+
+    // Loop through the sections and update the active link
+    navLinks.forEach((nav) => {
+      const section = document.getElementById(nav.id);
+      if (section) {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.clientHeight;
+
+        if (scrollOffset >= sectionTop - 100 && scrollOffset < sectionBottom - 100) {
+          setActive(nav.title);
+        }
+      }
+    });
+
+    setScrolled(true);
+
+    if (scrollOffset === 0) {
+      setActive("Home");
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    Events.scrollEvent.register("begin", (to, element) => {
+      // Handle scrolling events here if needed
+    });
+    Events.scrollEvent.register("end", (to, element) => {
+      // Handle scrolling events here if needed
+    });
+
+    return () => {
+      Events.scrollEvent.remove("begin");
+      Events.scrollEvent.remove("end");
+    };
+  }, []);
 
   return (
 <section className={`relative w-full h-screen mx-auto`}>
@@ -46,7 +105,16 @@ const Hero = () => {
           </motion.div>
 
           <motion.div {...slideAnimation} className="gap-5">
-            <button className="px-2 py-1.5 mt-5 flex-1 rounded-md bg-red-600 text-white"><Link to='#about'>Get Started</Link></button>
+            <button className="px-2 py-1.5 mt-5 flex-1 rounded-md bg-red-600 text-white"><ScrollLink
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-70} // Adjust the offset as needed
+              duration={500}
+              onClick={() => handleNavLinkClick("About")}
+            >
+              Get Started
+            </ScrollLink></button>
          
           </motion.div>
           
